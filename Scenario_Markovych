@@ -1,0 +1,18 @@
+Feature: Contact functionality on UBS Home Page
+
+Scenario: Menubar Contact is available
+Given I am on the UBS site
+When I click on "Contact"
+Then I see 3 items: "Report misconduct of UBS staff", "Contact us", "Locations"
+
+Scenario: Populating "Title " radio button
+Given I am on the UBS site
+When I click on "Contact"
+Then I click to  "Report misconduct of UBS staff"
+Then I populate "Title" radio button on "Personal Details" form
+
+Scenario: Filling "First Name" field
+Given I am on the UBS site
+When I click on "Contact"
+Then I click to  "Report misconduct of UBS staff"
+Then I fill "First Name" field

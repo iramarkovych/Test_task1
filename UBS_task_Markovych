@@ -1,0 +1,57 @@
+package Outline;
+ 
+import org.openqa.selenium.WebDriver; 
+
+import cucumber.api.en.Given; 
+import cucumber.api.en.Then;
+import cucumber.api.en.When; 
+
+public class stepdefinition { 
+   WebDriver driver;
+@Given("^I am on the UBS site$") 
+   public void I_am_on_the_UBS_site() throws Throwable {  
+      driver = new ChromeDriver
+      driver.navigate().to("https://www.ubs.com/"); 
+   }    
+@When("^I click on \"([^\"]*)\"$") 
+   public void I_click_on(Label menubar) throws Throwable {
+	   driver.findElement(By.(className("catNav__label catNav__hl--contactIcon"))).click(); 
+   } 
+@Then("^I see 3 items:\"([^\"]*)\"$") 
+   public void I_see_3_items(Label menuitem) throws Throwable {
+	   driver.findElement(By.LinkText("Report misconduct of UBS staff")).isPresent(); 
+	   driver.findElement(By.LinkText("Contact us")).isPresent(); 
+	   driver.findElement(By.LinkText("Locations")).isPresent(); 
+   } 
+@After("@Smoke,@Regression")
+    public void afterScenario(){
+        System.out.println("Scenario ends");
+    }   
+@Before("@Smoke,@Regression")
+    public void beforeScenario(){
+        System.out.println("New scenario begins");
+    }  
+@Then("^I populate \"([^\"]*)\"$ radio button on \"([^\"]*)\"$ form") 
+   public void I_populate_radio_button_on_form() throws Throwable {
+	   driver.findElement(By.LableText("Mrs/Ms")).click();
+	   driver.findElement(By.LableText("Mr")).click();
+@After("@Smoke,@Regression")
+    public void afterScenario(){
+        System.out.println("Scenario ends");
+    }   
+@Before("@Smoke,@Regression")
+    public void beforeScenario(){
+        System.out.println("New scenario begins");
+    } 
+@Then("^I fill \"([^\"]*)\"$ field") 
+   public void I_fill_field() throws Throwable {
+	   driver.findElement(By.name("Firstname")).sendKeys("user test");
+	   	
+@After("@Smoke,@Regression")
+    public void afterScenario(){
+        System.out.println("Scenario ends");
+    }
+
+
+
+	   
